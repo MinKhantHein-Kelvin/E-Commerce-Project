@@ -1,0 +1,37 @@
+<div class="container" >
+  <div class="row my-4">
+    <div class="col-md-3 col-sm-12">
+      <app-option [title]="'Categories'" [data]="allCategories" (selectedValue)="filterCategory($event)"></app-option>
+    </div>
+  </div>
+
+  <div class="row w-100 d-flex justify-content-center" *ngIf="loading">
+    <mat-progress-spinner
+        class="example-margin"
+        [color]="color"
+        [mode]="mode">
+    </mat-progress-spinner>
+  </div>
+
+  <div class="row" *ngIf="!loading">
+    <div class="col-md-3 col-sm-12 mb-3" *ngFor="let product of products">
+      <app-product [product]="product" (item)="addToCart($event)"></app-product>
+    </div>
+  </div>
+</div>
+<!--
+<div class="row">
+  <div class="col-md-3 col-sm-12">
+    <div class="item">
+      <img src="./test" alt="">
+      <div class="body">
+        <h4>some title</h4>
+        <p>Text add description</p>
+      </div>
+      <div class="d-flex justify-content-between align-items-center px-3">
+        <button class="btn-success">Add to cart</button>
+        <span>$50</span>
+      </div>
+    </div>
+  </div>
+</div> -->

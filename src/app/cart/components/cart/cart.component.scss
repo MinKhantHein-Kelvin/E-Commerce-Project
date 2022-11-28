@@ -1,0 +1,28 @@
+.card-header{
+  cursor: pointer;
+}
+.table{
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin: 20px 0;
+
+  th{
+    text-align: center;
+  }
+  td{
+    text-align: center;
+    border-top: 1px solid #c61d21;
+    border-bottom: 1px solid #c61d21;
+  }
+
+  .quantity{
+    display: flex;
+    justify-content: space-between;
+    input{
+      margin: 0 20px;
+    }
+  }
+}
+
+

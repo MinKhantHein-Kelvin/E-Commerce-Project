@@ -1,0 +1,22 @@
+<mat-card class="product-card">
+  <img [src]="product.image" alt="" class="card-img-top img-fluid" style="height: 250px;"  routerLink="details/{{product.id}}">
+  <mat-card-content>
+    <h4 class="text-center">{{product.title}}</h4>
+    <h4>
+      {{product.description | slice: 0:80}}...
+    </h4>
+  </mat-card-content>
+  <mat-card-actions class="d-flex justify-content-around">
+    <button mat-raised-button class="add-btn" color="warn" *ngIf="!addButton" (click)="addButton = true">
+      <span>Add to Cart</span>
+    </button>
+    <div *ngIf="addButton" class="d-flex">
+      <input type="number" class="form-control w-50" [(ngModel)]="amount" min="1">
+      <button mat-raised-button class="add-btn" color="warn" (click)="addToCart(); addButton = false">
+        <span>Add to Cart</span>
+      </button>
+    </div>
+
+    <button mat-raised-button class="price-btn">{{product.price | currency }}</button>
+  </mat-card-actions>
+</mat-card>
